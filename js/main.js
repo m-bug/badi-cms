@@ -1,7 +1,7 @@
 async function init() {
   const openingEl = document.getElementById("opening-hours");
   const eventsEl = document.getElementById("events-list");
-  const restaurantEl = document.getElementById("restaurant");
+  const restaurantEl = document.getElementById("restaurant-content");
   const blogEl = document.getElementById("blog-list");
 
   try {

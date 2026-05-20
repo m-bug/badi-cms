@@ -75,7 +75,7 @@ const Content = {
       : "";
 
     el.innerHTML = `
-      <h3>${this.escapeHtml(data.title || "Restaurant")}</h3>
+      <p class="restaurant-title">${this.escapeHtml(data.title || "Restaurant")}</p>
       <p>${this.escapeHtml(data.description || "")}</p>
       ${menuLink}
     `;

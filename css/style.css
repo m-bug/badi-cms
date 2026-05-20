@@ -111,6 +111,13 @@ body {
   box-shadow: var(--shadow);
 }
 
+.content-box .restaurant-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-water-dark);
+}
+
 .section-alt .content-box,
 .section-alt .card {
   background: var(--color-white);
