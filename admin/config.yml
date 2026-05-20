@@ -1,0 +1,85 @@
+# Nach dem Deploy: repo-Zeile anpassen (owner/name) und Netlify Identity + Git Gateway aktivieren.
+# Lokal testen: npx decap-server (siehe README)
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Für lokale Entwicklung ohne Netlify — decap-server auf Port 8081:
+local_backend: false
+
+media_folder: static/uploads
+public_folder: /static/uploads
+
+locale: de
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Blog-Artikel
+    folder: content/blog
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Intro, name: intro, widget: text }
+      - { label: Datum, name: date, widget: datetime }
+      - { label: Entwurf, name: draft, widget: boolean, default: false }
+      - { label: Text, name: body, widget: markdown }
+
+  - name: events
+    label: Aktuelles / Termine
+    label_singular: Termin
+    folder: content/events
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    fields:
+      - { label: Titel, name: title, widget: string }
+      - { label: Intro, name: intro, widget: text }
+      - { label: Datum, name: date, widget: datetime }
+      - { label: Ort, name: location, widget: string, required: false }
+      - { label: Text, name: body, widget: markdown }
+
+  - name: data
+    label: Seitendaten
+    files:
+      - label: Öffnungszeiten
+        name: opening_hours
+        file: data/opening-hours.yml
+        fields:
+          - { label: Saison-Hinweis, name: season, widget: string }
+          - { label: Hinweis (z. B. Wetter), name: note, widget: text, required: false }
+          - label: Wochentage
+            name: days
+            widget: list
+            fields:
+              - { label: Tag, name: label, widget: string }
+              - { label: Uhrzeiten, name: hours, widget: string }
+
+      - label: Restaurant
+        name: restaurant
+        file: data/restaurant.yml
+        fields:
+          - { label: Titel, name: title, widget: string }
+          - { label: Beschreibung, name: description, widget: text }
+          - { label: Speisekarte (PDF), name: menu_pdf, widget: file, media_folder: static/uploads, public_folder: /static/uploads }
+
+      - label: Inhaltsverzeichnis
+        name: manifest
+        file: content/manifest.json
+        format: json
+        fields:
+          - label: Blog-Artikel (Dateinamen)
+            name: blog
+            widget: list
+            summary: "{{fields.path}}"
+            field: { label: Markdown-Datei, name: path, widget: string, hint: "z. B. mein-artikel.md — muss in content/blog/ existieren" }
+          - label: Termine (Dateinamen)
+            name: events
+            widget: list
+            summary: "{{fields.path}}"
+            field: { label: Markdown-Datei, name: path, widget: string, hint: "z. B. sommerfest.md — muss in content/events/ existieren" }

@@ -1,0 +1,9 @@
+{
+  "blog": [
+    { "path": "willkommen-im-freibad.md" }
+  ],
+  "events": [
+    { "path": "sommerfest.md" },
+    { "path": "winterpause.md" }
+  ]
+}

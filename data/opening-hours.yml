@@ -1,0 +1,14 @@
+season: Saison 2026 — täglich geöffnet bei Sonnenschein
+note: >-
+  Bei Gewitter oder Sturm bleibt das Bad geschlossen. Änderungen werden hier
+  veröffentlicht.
+
+
+  Achtung: Jeden Mittwoch gibt es "Frühschwimmen", 07.00 bis 09.00 Uhr!
+days:
+  - label: Montag – Freitag
+    hours: 9:00 – 19:00 Uhr
+  - label: Samstag
+    hours: 9:00 – 20:00 Uhr
+  - label: Sonntag & Feiertag
+    hours: 10:00 – 20:00 Uhr

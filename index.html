@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freibad Musterstadt</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Freibad Musterstadt</a>
+      <nav aria-label="Hauptnavigation">
+        <ul class="nav-list">
+          <li><a href="#oeffnungszeiten">Öffnungszeiten</a></li>
+          <li><a href="#aktuelles">Aktuelles</a></li>
+          <li><a href="#restaurant">Restaurant</a></li>
+          <li><a href="#blog">Blog</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Willkommen im Freibad Musterstadt</h1>
+        <p class="hero-lead">Schwimmen, Sonne und Erholung — die Saison läuft.</p>
+      </div>
+    </section>
+
+    <section id="oeffnungszeiten" class="section">
+      <div class="container">
+        <h2>Öffnungszeiten</h2>
+        <div id="opening-hours" class="content-box" aria-live="polite">
+          <p class="loading">Lade Öffnungszeiten …</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="aktuelles" class="section section-alt">
+      <div class="container">
+        <h2>Aktuelles</h2>
+        <div id="events-list" class="cards" aria-live="polite">
+          <p class="loading">Lade Termine …</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="restaurant" class="section">
+      <div class="container">
+        <h2>Restaurant</h2>
+        <div id="restaurant" class="content-box" aria-live="polite">
+          <p class="loading">Lade Restaurant-Infos …</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section section-alt">
+      <div class="container">
+        <h2>Blog</h2>
+        <div id="blog-list" class="cards" aria-live="polite">
+          <p class="loading">Lade Artikel …</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Freibad Musterstadt — Beispielprojekt mit Decap CMS</p>
+      <p><a href="/admin/">Redaktion (CMS)</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
+  <script src="/js/content.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
