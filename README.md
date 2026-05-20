@@ -19,6 +19,9 @@ Decap CMS schreibt Änderungen ins Git-Repository; Netlify baut bei jedem Push n
 └── admin/                  # Decap CMS (/admin/)
 ```
 
+## Demo
+Dann im Browser: https://deft-maamoul-837773.netlify.app/
+
 ## Lokal ansehen
 
 `fetch()` funktioniert nicht über `file://` — ein lokaler Webserver ist nötig:
