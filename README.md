@@ -71,6 +71,8 @@ Passwort vergessen: Login-Maske → **Recover password**.
 
 Voraussetzungen in Netlify: **Identity enabled**, **Git Gateway** aktiv, Registration z. B. **Invite only**.
 
+**Fehler „Branch not found“:** In `admin/config.yml` muss `backend.branch` exakt dem Standard-Branch im Git-Repo entsprechen (hier: `master`, nicht `main`).
+
 Nach **Publish** im CMS: Commit ins Repo → Netlify Deploy automatisch.
 
 ## Neuen Blog-Artikel oder Termin anlegen

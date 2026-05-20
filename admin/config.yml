@@ -3,7 +3,7 @@
 
 backend:
   name: git-gateway
-  branch: main
+  branch: master
 
 # Für lokale Entwicklung ohne Netlify — decap-server auf Port 8081:
 local_backend: false
