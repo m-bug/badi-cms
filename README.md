@@ -62,7 +62,7 @@ Im Browser: http://localhost:8080/admin/
 
 1. Einladungs-E-Mail öffnen → Link klicken → du landest auf der **Startseite** mit `#invite_token=…` in der URL.
 2. Es öffnet sich ein **Netlify-Dialog** zum Passwort setzen (dafür muss `netlify-identity-widget.js` in `index.html` geladen sein — ist im Repo so eingebaut).
-3. Nach dem Speichern wirst du automatisch zu **`/admin/`** weitergeleitet.
+3. Nach dem Speichern der Einladung wirst du einmalig zu **`/admin/`** weitergeleitet (nicht bei jedem normalen Seitenbesuch).
 4. Später: **`https://deine-site.netlify.app/admin/`** → **Login** → E-Mail + Passwort.
 
 **Kein Dialog nach Klick auf den Einladungs-Link?** Meist fehlt das Identity-Widget auf der Startseite (nur unter `/admin/` reicht nicht). Einmal deployen, Link aus der Mail erneut öffnen. In der Adresszeile sollte `#invite_token=` stehen.

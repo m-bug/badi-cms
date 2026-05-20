@@ -79,11 +79,19 @@
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", (user) => {
-        if (!user && window.location.hash.includes("invite_token")) {
+        const hash = window.location.hash;
+        const fromInvite = hash.includes("invite_token");
+
+        if (!user && fromInvite) {
           window.netlifyIdentity.open("signup");
         }
+        // Nur nach Einladung ins CMS — nicht bei normalem Besuch mit bestehender Session
+        if (user && fromInvite) {
+          window.location.replace("/admin/");
+          return;
+        }
         window.netlifyIdentity.on("login", () => {
-          if (window.location.hash.includes("invite_token") || window.location.pathname === "/") {
+          if (window.location.hash.includes("invite_token")) {
             window.location.replace("/admin/");
           }
         });
