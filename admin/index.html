@@ -1,55 +1,21 @@
 <!DOCTYPE html>
-<html lang="de" class="identity-pending">
+<html lang="de">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Freibad CMS</title>
-  <style>
-    /* CMS erst anzeigen, wenn Identity einen User bestätigt hat */
-    html:not(.identity-logged-in) #nc-root {
-      display: none !important;
-    }
-  </style>
 </head>
 <body>
   <!-- Erforderlich für Login mit Netlify Identity + Git Gateway -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     (function () {
-      function setAuthState(loggedIn) {
-        document.documentElement.classList.remove("identity-pending");
-        document.documentElement.classList.toggle("identity-logged-in", loggedIn);
-      }
+      if (!window.netlifyIdentity) return;
 
-      function watchCmsRoot(loggedIn) {
-        const apply = function () {
-          const root = document.getElementById("nc-root");
-          if (root) root.hidden = !loggedIn;
-        };
-        apply();
-        if (!loggedIn) {
-          const obs = new MutationObserver(apply);
-          obs.observe(document.body, { childList: true, subtree: true });
-          window.netlifyIdentity.on("login", function () {
-            obs.disconnect();
-          });
-        }
-      }
-
-      window.netlifyIdentity.on("init", function (user) {
-        const loggedIn = Boolean(user);
-        setAuthState(loggedIn);
-        watchCmsRoot(loggedIn);
-
-        window.netlifyIdentity.on("login", function () {
-          setAuthState(true);
-          watchCmsRoot(true);
-        });
-
-        window.netlifyIdentity.on("logout", function () {
-          setAuthState(false);
-          window.location.replace("/admin/");
-        });
+      window.netlifyIdentity.on("logout", function () {
+        window.netlifyIdentity.close();
+        // Seite neu laden, damit Decap nicht mit alter Oberfläche hängen bleibt
+        window.location.replace("/admin/");
       });
     })();
   </script>
