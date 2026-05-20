@@ -60,12 +60,16 @@ Im Browser: http://localhost:8080/admin/
 
 ### Einloggen (nach Einladung)
 
-1. Einladungs-E-Mail öffnen → Link klicken → **Passwort setzen** (das ist der erste „Login“).
-2. Später immer: **`https://deine-site.netlify.app/admin/`** öffnen (exakt die Netlify-URL der Site).
-3. Oben in Decap auf **Login** klicken → Netlify-Fenster: **E-Mail + Passwort** (nicht GitHub, sofern ihr keine External provider konfiguriert habt).
-4. Passwort vergessen: auf der Login-Maske **Recover password** — Netlify schickt einen Reset-Link.
+1. Einladungs-E-Mail öffnen → Link klicken → du landest auf der **Startseite** mit `#invite_token=…` in der URL.
+2. Es öffnet sich ein **Netlify-Dialog** zum Passwort setzen (dafür muss `netlify-identity-widget.js` in `index.html` geladen sein — ist im Repo so eingebaut).
+3. Nach dem Speichern wirst du automatisch zu **`/admin/`** weitergeleitet.
+4. Später: **`https://deine-site.netlify.app/admin/`** → **Login** → E-Mail + Passwort.
 
-Voraussetzungen in Netlify (Site settings → Identity): **Identity enabled**, **Git Gateway** unter Services aktiv, Registration idealerweise **Invite only**. Nach Änderung an `admin/index.html` einmal neu deployen.
+**Kein Dialog nach Klick auf den Einladungs-Link?** Meist fehlt das Identity-Widget auf der Startseite (nur unter `/admin/` reicht nicht). Einmal deployen, Link aus der Mail erneut öffnen. In der Adresszeile sollte `#invite_token=` stehen.
+
+Passwort vergessen: Login-Maske → **Recover password**.
+
+Voraussetzungen in Netlify: **Identity enabled**, **Git Gateway** aktiv, Registration z. B. **Invite only**.
 
 Nach **Publish** im CMS: Commit ins Repo → Netlify Deploy automatisch.
 

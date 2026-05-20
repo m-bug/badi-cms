@@ -73,6 +73,24 @@
     </div>
   </footer>
 
+  <!-- Einladungs-Link aus E-Mail landet auf der Startseite (#invite_token=…).
+       Ohne dieses Script erscheint kein Dialog zum Passwort setzen. -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", (user) => {
+        if (!user && window.location.hash.includes("invite_token")) {
+          window.netlifyIdentity.open("signup");
+        }
+        window.netlifyIdentity.on("login", () => {
+          if (window.location.hash.includes("invite_token") || window.location.pathname === "/") {
+            window.location.replace("/admin/");
+          }
+        });
+      });
+    }
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4/dist/js-yaml.min.js"></script>
   <script src="/js/content.js"></script>
