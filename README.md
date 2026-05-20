@@ -58,6 +58,15 @@ Im Browser: http://localhost:8080/admin/
 6. Mitarbeiter unter Identity → Invite users einladen.
 7. CMS: `https://deine-site.netlify.app/admin/`
 
+### Einloggen (nach Einladung)
+
+1. Einladungs-E-Mail öffnen → Link klicken → **Passwort setzen** (das ist der erste „Login“).
+2. Später immer: **`https://deine-site.netlify.app/admin/`** öffnen (exakt die Netlify-URL der Site).
+3. Oben in Decap auf **Login** klicken → Netlify-Fenster: **E-Mail + Passwort** (nicht GitHub, sofern ihr keine External provider konfiguriert habt).
+4. Passwort vergessen: auf der Login-Maske **Recover password** — Netlify schickt einen Reset-Link.
+
+Voraussetzungen in Netlify (Site settings → Identity): **Identity enabled**, **Git Gateway** unter Services aktiv, Registration idealerweise **Invite only**. Nach Änderung an `admin/index.html` einmal neu deployen.
+
 Nach **Publish** im CMS: Commit ins Repo → Netlify Deploy automatisch.
 
 ## Neuen Blog-Artikel oder Termin anlegen
